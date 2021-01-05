@@ -1,0 +1,110 @@
+/* Colors
+Main background: #2B2733
+Text on main background: #CBC9CF
+Header, cards: #46424D
+Card shadow: #26222D
+Text on header and cards: #FFF
+Study: #B3FD78
+Meditate: #C278FD
+Exercise: #FD8078
+Error: #EFB7EC */
+/* The following effectively removes the browser presets so we are able to manipulate css from ground 0 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+	vertical-align: baseline;
+}
+
+
+html {
+    background-color: #2B2733;
+    color: #CBC9CF;
+}
+
+nav {
+    background-color: #46424D;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 10px;
+    top: 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 6px;
+    font-size: 28px;
+}
+
+/* Main Body */
+
+main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+h2 {
+    font-size: 28px;
+    margin-left: 35px;
+    margin-top: 40px;
+}
+
+.new-activity {
+    width: 60%;
+}
+
+.past-activities {
+    width: 40%;
+    border-left: 4px solid #46424D;
+}
+
+.no-activities {
+    margin-top: 50px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #46424D;
+    margin: 35px;
+    height: 750px;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    background-color: transparent;
+    border: 2px solid #CBC9CF;
+    color: #CBC9CF
+}
+
+.start-activity {
+    background-color: ;
+}
+
+.user-time {
+    display: flex;
+    flex-direction: row;
+}
