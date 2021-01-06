@@ -13,26 +13,38 @@
  <main>
   <section class="new-activity">
    <h2>New Activity</h2>
+  <div class="form-wrapper">
    <form>
     <label for="categories">Select a Category:</label>
     <section class="categories">
      <button class="study-btn">
-      <svg class="study-inactive"></svg>
-      Study
-      </button>
-     <button class="meditate">Meditate</button>
-     <button class="exercise">Exercise</button>
+      <img src="assets/study.svg" alt="light bulb">
+       <p>Study</p>
+     </button>
+     <button class="meditate-btn">
+      <img src="assets/meditate.svg" alt="flower">
+       <p>Meditate</p>
+     </button>
+     <button class="exercise-btn">
+      <img src="assets/exercise.svg" alt="shoe">
+       <p>Exercise</p>
+     </button>
     </section>
+  <div class="user-activity-wrapper">
     <label for="user-activity">What would you like to accomplish during this time?</label>
     <input class="user-activity" type="text" id="userActivity">
+  </div>
     <section class="user-time">
       <label for="user-minutes">Minutes</label>
       <input class="user-minutes" type="text" id="userMinutes">
       <label for="user-seconds">Seconds</label>
       <input class="user-seconds" type="text" id="userSeconds">
     </section>
-    <button class="start-activity">START ACTIVITY</button>
+    <div class="activity-button-wrapper">
+     <button class="start-activity">START ACTIVITY</button>
+    </div>
    </form>
+  </div>
   </section>
   <section class="past-activities">
    <h2>Past Activities</h2>

@@ -18,8 +18,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -81,27 +81,61 @@ h2 {
     line-height: 35px;
 }
 
+.form-wrapper {
+	background-color: #46424D;
+	margin: 0 35px;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    background-color: #46424D;
-    margin: 35px;
-    height: 750px;
+    /* justify-content: space-around; */
+		margin-top: 50px;
+    height: 600px;
+		padding: 40px 80px;
 }
 
 .categories {
     display: flex;
     flex-direction: row;
+		justify-content: space-between;
 }
 
 button {
     background-color: transparent;
     border: 2px solid #CBC9CF;
     color: #CBC9CF
+		display: flex;
+
+}
+
+button > p {
+	color: #CBC9CF
+}
+
+img {
+	max-height: 25px;
+}
+
+.study-btn,
+.meditate-btn,
+.exercise-btn {
+	padding: 30px;
+}
+
+.activity-button-wrapper {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .start-activity {
-    background-color: ;
+    background-color: #CBC9CF;
+		color: #2B2733;
+		position: absolute;
+		bottom: 50px;
+		padding: 5px 25px;
+		border-radius: 3px;
+		font-size: large;
 }
 
 .user-time {
