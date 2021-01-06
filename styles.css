@@ -89,7 +89,7 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
+    justify-content: space-around;
 		margin-top: 50px;
     height: 600px;
 		padding: 40px 80px;
@@ -104,9 +104,13 @@ form {
 button {
     background-color: transparent;
     border: 2px solid #CBC9CF;
-    color: #CBC9CF
-		display: flex;
-
+    color: #CBC9CF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 185px;
+    max-height: 80px;
+    border-radius: 6px;
 }
 
 button > p {
@@ -121,6 +125,11 @@ img {
 .meditate-btn,
 .exercise-btn {
 	padding: 30px;
+}
+
+.user-activity-wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .activity-button-wrapper {
@@ -140,5 +149,24 @@ img {
 
 .user-time {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+}
+
+.minutes-style,
+.seconds-style {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.input-style {
+    background-color: transparent;
+    border: 5px solid red;
+    border-bottom: 3px solid #CBC9CF;
+    height: 50px;
+    /* margin-top: 30px; */
+    /* padding-bottom: 0; */
+    vertical-align: text-bottom;
+    font-size: 20px;
+    color: #CBC9CF;
 }
