@@ -18,23 +18,42 @@
    <section class="categories-wrapper">
     <h3>Select a Category:</h3>
     <section class="categories">
-     <button class="study-btn">
+     <!-- <button class="radio-btn" type="radio" name="category" id="studyBtn" value="study">
       <img src="assets/study.svg" alt="light bulb">
        <p>Study</p>
      </button>
-     <button class="meditate-btn">
-      <img src="assets/meditate.svg" alt="flower">
+     <button class="radio-btn" type="radio" name="category" id="meditateBtn" value="meditate">
+       <img src="assets/meditate.svg" alt="flower">
        <p>Meditate</p>
-     </button>
-     <button class="exercise-btn">
-      <img src="assets/exercise.svg" alt="shoe">
+      </button>
+      <button class="radio-btn" type="radio" name="category" id="exerciseBtn" value="exercise">
+        <img src="assets/exercise.svg" alt="shoe">
+        <p>Exercise</p>
+      </button> -->
+      <input type="radio" name="activity" id="studyBtn" value="study">
+      <label for="studyBtn">
+       <img src="assets/study.svg" alt="light bulb">   
+       <p>Study</p>
+      </label>
+      <input type="radio" name="activity" id="meditateBtn" value="meditate">
+      <label for="meditateBtn">
+       <img src="assets/meditate.svg" alt="lotus">
+       <p>Meditate</p>
+      </label>
+      <input type="radio" name="activity" id="exerciseBtn" value="exercise">
+      <label for="exerciseBtn">
+       <img src="assets/exercise.svg" alt="sneaker">
        <p>Exercise</p>
-    </button>
+      </label>
    </section>
   </section>
   <div class="user-activity-wrapper label-style">
     <p>What would you like to accomplish during this time?</p>
     <input class="user-activity input-style" type="text" id="userActivity">
+    <div class="error-wrapper hidden">
+      <img src="assets/warning.svg">
+      <p class="activity-error">A description is required.</p> 
+    </div>
   </div>
     <section class="user-time">
       <div class="minutes-style label-style">

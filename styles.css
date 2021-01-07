@@ -8,6 +8,7 @@ Study: #B3FD78
 Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC */
+
 /* The following effectively removes the browser presets so we are able to manipulate css from ground 0 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -111,15 +112,48 @@ button {
     color: #CBC9CF;
     display: flex;
     flex-direction: column;
-		justify-content: center;
+	justify-content: center;
     align-items: center;
     width: 185px;
     max-height: 80px;
     border-radius: 6px;
+    appearance: none;
 }
 
 button > p {
 	color: #CBC9CF
+}
+
+.categories input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.categories label {
+    background-color: transparent;
+    border: 2px solid #CBC9CF;
+    color: #CBC9CF;
+    display: flex;
+    flex-direction: column;
+	justify-content: space-around;
+    align-items: center;
+    width: 185px;
+    max-height: 80px;
+    border-radius: 6px;
+    appearance: none;
+    padding: 10px;
+}
+
+.categories input[type="radio"]:checked + label {
+    color: #C278FD;
+    border-color: #C278FD;
+    box-shadow: 0 0 10px #C278FD;
+}
+
+.categories input[type="radio"]:hover + label {
+    color: #C278FD;
+    border-color: #C278FD;
 }
 
 img {
@@ -178,4 +212,25 @@ img {
     vertical-align: text-bottom;
     font-size: 18px;
     color: #CBC9CF;
+}
+
+.error-border {
+    border-color: #EFB7EC;
+}
+
+.error-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    color: #EFB7EC;
+    margin-top: 17px;
+}
+
+.error-wrapper > p {
+    font-size: large;
+    margin-left: 15px;
+}
+
+.hidden {
+    display: none;
 }
