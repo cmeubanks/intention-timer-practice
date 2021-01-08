@@ -1,14 +1,18 @@
 // var Activity = require('./Activity.js');
-
+var cards = [];
 var studyBtn = document.getElementById('study-btn')
 var meditateBtn = document.getElementById('meditate-btn')
 var exerciseBtn = document.getElementById('exercise-btn')
-var radioBtns = document.querySelectorAll('input[type="radio"]') 
+var radioBtns = document.querySelectorAll('input[type="radio"]')
 var startBtn = document.querySelector('.start-activity')
-var userActivity = document.getElementById('userActivity') 
+var userActivity = document.getElementById('userActivity')
 var userMinutes = document.getElementById('userMinutes')
 var userSeconds = document.getElementById('userSeconds')
 var errorWrapper = document.getElementById('errorWrapper')
+var timerPage = document.getElementById('timerPage')
+var newActivityPage = document.getElementById('newActivityPage')
+var timerEvent = document.getElementById('timerEvent')
+var displayTimer = document.getElementById('displayTimer')
 
 
 // Activity Class Constructor
@@ -40,6 +44,16 @@ startBtn.addEventListener('click', submit)
 
 // functions
 
+function inputUserValues() {
+  displayTimer.innerText = `${userMinutes.value} : ${userSeconds.value}`
+  timerEvent.innerText = userActivity.value
+}
+
+function switchForm() {
+  timerPage.classList.remove('hidden')
+  newActivityPage.classList.add('hidden')
+}
+
 function submit() {
     event.preventDefault()
     if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
@@ -50,7 +64,9 @@ function submit() {
         errorWrapper.classList.remove('hidden')
     } else {
         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
-        console.log(activityCard)
+        cards.push(activityCard)
+        switchForm()
+        inputUserValues()
     }
 }
 
