@@ -11,28 +11,16 @@
   <h1>INTENTION TIMER</h1>
  </nav>
  <main>
-  <section class="new-activity">
+  <section class="new-activity hidden">
    <h2>New Activity</h2>
   <div class="form-wrapper">
    <form>
    <section class="categories-wrapper">
     <h3>Select a Category:</h3>
     <section class="categories">
-     <!-- <button class="radio-btn" type="radio" name="category" id="studyBtn" value="study">
-      <img src="assets/study.svg" alt="light bulb">
-       <p>Study</p>
-     </button>
-     <button class="radio-btn" type="radio" name="category" id="meditateBtn" value="meditate">
-       <img src="assets/meditate.svg" alt="flower">
-       <p>Meditate</p>
-      </button>
-      <button class="radio-btn" type="radio" name="category" id="exerciseBtn" value="exercise">
-        <img src="assets/exercise.svg" alt="shoe">
-        <p>Exercise</p>
-      </button> -->
       <input type="radio" name="activity" id="studyBtn" value="study">
       <label for="studyBtn">
-       <img src="assets/study.svg" alt="light bulb">   
+       <img src="assets/study.svg" alt="light bulb">
        <p>Study</p>
       </label>
       <input type="radio" name="activity" id="meditateBtn" value="meditate">
@@ -46,13 +34,12 @@
        <p>Exercise</p>
       </label>
    </section>
-  </section>
   <div class="user-activity-wrapper label-style">
     <p>What would you like to accomplish during this time?</p>
     <input class="user-activity input-style" type="text" id="userActivity">
     <div class="error-wrapper hidden" id="errorWrapper">
       <img src="assets/warning.svg">
-      <p class="activity-error">A description is required.</p> 
+      <p class="activity-error">A description is required.</p>
     </div>
   </div>
     <section class="user-time">
@@ -71,6 +58,17 @@
    </form>
   </div>
   </section>
+  <section class="new-activity timer">
+  <h2>Current Activity</h2>
+   <section class="timer-wrapper">
+    <div class="time-detail">
+     <p>place holder</p>
+     <p class="time-function">05:00</p>
+    </div>
+    <button class="start-btn" type="button">START</button>
+  </section>
+  </section>
+ </section>
   <section class="past-activities">
    <h2>Past Activities</h2>
    <p class="no-activities">You haven't logged any activities yet.</br> Complete the form to the left to get started!</p>

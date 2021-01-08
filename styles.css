@@ -100,6 +100,29 @@ form {
 		padding: 40px 80px;
 }
 
+.timer-wrapper {
+	background-color: #46424D;
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 35px;
+	margin-top: 15px;
+	height: 600px;
+	padding: 40px 80px;
+
+}
+
+.time-detail {
+	/* LAST STOPPING POINT */
+}
+
+.time-function {
+	font-size: 70px;
+	font-weight: bolder;
+	margin-bottom: 50px;
+}
+
 .categories {
     display: flex;
     flex-direction: row;
@@ -122,6 +145,16 @@ button {
 
 button > p {
 	color: #CBC9CF
+}
+
+.start-btn {
+	border-color: pink;
+	min-height: 250px;
+	width: 250px;
+	line-height: 250px;
+	text-align: center;
+  border-radius: 50%;
+	font-size: x-large;
 }
 
 .categories input[type="radio"] {
@@ -233,4 +266,3 @@ img {
 .hidden {
         display: none;
     }
-
