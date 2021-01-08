@@ -218,6 +218,11 @@ img {
     border-color: #EFB7EC;
 }
 
+
+.error-wrapper > p {
+    font-size: large;
+    margin-left: 15px;
+}
 .error-wrapper {
     display: flex;
     flex-direction: row;
@@ -225,12 +230,7 @@ img {
     color: #EFB7EC;
     margin-top: 17px;
 }
-
-.error-wrapper > p {
-    font-size: large;
-    margin-left: 15px;
-}
-
 .hidden {
-    display: none;
-}
+        display: none;
+    }
+
