@@ -76,6 +76,7 @@ function submit() {
         cards.push(activityCard)
         inputUserValues()
         switchForm()
+        setStartBtnColor()
     }
 }
 
@@ -110,6 +111,18 @@ function changeImage() {
   } if (radioBtns[i].checked && radioBtns[i].value === "exercise") {
     exerciseBtnImg.classList.toggle('hidden')
     exerciseBtnImgAct.classList.toggle('hidden')
+  }
+ }
+}
+
+function setStartBtnColor() {
+  for (var i = 0; i < radioBtns.length; i++){
+    if (radioBtns[i].checked && radioBtns[i].value === "study") {
+    startTimerBtn.style.borderColor = "#B3FD78";
+  } if (radioBtns[i].checked && radioBtns[i].value === "meditate") {
+    startTimerBtn.style.borderColor = "#C278FD";
+  } if (radioBtns[i].checked && radioBtns[i].value === "exercise") {
+    startTimerBtn.style.borderColor = "#FD8078";
   }
  }
 }
