@@ -5,6 +5,7 @@ var meditateBtn = document.getElementById('meditate-btn')
 var exerciseBtn = document.getElementById('exercise-btn')
 var radioBtns = document.querySelectorAll('input[type="radio"]')
 var startBtn = document.querySelector('.start-activity')
+var startTimerBtn = document.getElementById('startTimerBtn')
 var userActivity = document.getElementById('userActivity')
 var userMinutes = document.getElementById('userMinutes')
 var userSeconds = document.getElementById('userSeconds')
@@ -47,7 +48,7 @@ class Activity {
 startBtn.addEventListener('click', submit)
 
 // global
-studyBtnImg.classList.add('active-study-btn')
+// studyBtnImg.classList.add('active-study-btn')
 // functions
 
 function inputUserValues() {
@@ -60,21 +61,22 @@ function switchForm() {
   newActivityPage.classList.add('hidden')
 }
 
-// function submit() {
-//     event.preventDefault()
-//     if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
-//         // Why is the bang above working???
-//         errorWrapper.classList.remove('hidden')
-//     } else if ((userMinutes.value || userSeconds.value) === 'e') {
-// //  Remember to write another error handler to stop numbers with a length longer than 2 from being entered for seconds/minutes (not >= 60)
-//         errorWrapper.classList.remove('hidden')
-//     } else {
-//         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
-//         cards.push(activityCard)
-//         switchForm()
-//         inputUserValues()
-//     }
-// }
+function submit() {
+    event.preventDefault()
+    if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
+        // Why is the bang above working???
+        errorWrapper.classList.remove('hidden')
+    } else if ((userMinutes.value || userSeconds.value) === 'e') {
+//  Remember to write another error handler to stop numbers with a length longer than 2 from being entered for seconds/minutes (not >= 60)
+        errorWrapper.classList.remove('hidden')
+    } else {
+        var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
+        cards.push(activityCard)
+        inputUserValues()
+        setColor()
+        switchForm()
+    }
+}
 
 function isBtnChecked() {
     for (var i = 0; i < radioBtns.length; i++) {
@@ -89,8 +91,16 @@ function whichBtn() {
     var theRightBtn = null
     for (var i = 0; i < radioBtns.length; i++) {
         if (radioBtns[i].checked) {
-            theRightBtn = radioBtns[i].value
+        theRightBtn = radioBtns[i].value
+        return theRightBtn
+        }
+    }    
+}
+
+function setColor() {
+    for (var i = 0; i < radioBtns.length; i++) {
+        if (radioBtns[i].checked && (radioBtns[i].value === 'study')) {
+            startTimerBtn.classList.add('start-study')
         }
     }
-    return theRightBtn
 }

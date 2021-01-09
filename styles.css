@@ -38,8 +38,8 @@ html {
 
 nav {
     background-color: #46424D;
-    width: 100%;
-    height: 50px;
+    width: 100vw;
+    height: 5vh;
     margin: 0;
     padding: 10px;
     top: 0;
@@ -70,12 +70,14 @@ h3 {
 }
 
 .new-activity {
-    width: 60%;
+    width: 60vw;
+    height: 95vh;
 }
 
 .past-activities {
-    width: 40%;
+    width: 40vw;
     border-left: 4px solid #46424D;
+    height: 95vh;
 }
 
 .no-activities {
@@ -94,9 +96,9 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-		margin-top: 50px;
+	margin-top: 50px;
     height: 600px;
-		padding: 40px 80px;
+	padding: 40px 80px;
 }
 
 .timer-wrapper {
@@ -128,7 +130,14 @@ form {
 .categories {
     display: flex;
     flex-direction: row;
-		justify-content: space-between;
+	justify-content: space-between;
+}
+
+.categories-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 button {
@@ -150,13 +159,25 @@ button > p {
 }
 
 .start-btn {
-	border-color: pink;
+	/* border-color: pink; */
 	min-height: 250px;
 	width: 250px;
 	line-height: 250px;
 	text-align: center;
   border-radius: 50%;
 	font-size: x-large;
+}
+
+.start-study {
+    border-color: #B3FD78;
+}
+
+.start-meditate {
+    border-color: #C278FD;
+}
+
+.start-exercise {
+    border-color: #FD8078;
 }
 
 .categories input[type="radio"] {
@@ -180,15 +201,23 @@ button > p {
     padding: 10px;
 }
 
-.categories input[type="radio"]:checked + label {
+#meditateBtn:checked + label,
+#meditateBtn:hover + label {
     color: #C278FD;
     border-color: #C278FD;
     box-shadow: 0 0 10px #C278FD;
 }
-
-.categories input[type="radio"]:hover + label {
-    color: #C278FD;
-    border-color: #C278FD;
+#studyBtn:checked + label,
+#studyBtn:hover + label {
+    color: #B3FD78;
+    border-color: #B3FD78;
+    box-shadow: 0 0 10px #B3FD78;
+}
+#exerciseBtn:checked + label,
+#exerciseBtn:hover + label {
+    color: #FD8078;
+    border-color: #FD8078;
+    box-shadow: 0 0 10px #FD8078;
 }
 
 img {
