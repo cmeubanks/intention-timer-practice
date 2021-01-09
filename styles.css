@@ -198,8 +198,33 @@ img {
 .study-btn,
 .meditate-btn,
 .exercise-btn {
-	padding: 30px;
+    padding: 30px;
 }
+
+.inactive-study-btn {
+    content: url('/assets/study.svg');
+}
+
+.inactive-meditate-btn {
+    content: url('/assets/meditate.svg');
+}
+
+.inactive-exercise-btn {
+    content: url('/assets/exercise.svg');
+}
+
+.active-study-btn {
+    content: url('/assets/study-active.svg');
+}
+
+.active-meditate-btn {
+    content: url('/assets/meditate-active.svg');
+}
+
+.active-exercise-btn {
+    content: url('/assets/exercise-active.svg');
+}
+
 
 .user-activity-wrapper {
     display: flex;

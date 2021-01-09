@@ -13,6 +13,10 @@ var timerPage = document.getElementById('timerPage')
 var newActivityPage = document.getElementById('newActivityPage')
 var timerEvent = document.getElementById('timerEvent')
 var displayTimer = document.getElementById('displayTimer')
+var studyBtnImg = document.getElementById('studyBtnImg')
+var meditateBtnImg = document.getElementById('meditateBtnImg')
+var exerciseBtnImg = document.getElementById('exerciseBtnImg')
+
 
 
 // Activity Class Constructor
@@ -42,6 +46,8 @@ class Activity {
 // radioBtns.addEventListener('checked', activate)
 startBtn.addEventListener('click', submit)
 
+// global
+studyBtnImg.classList.add('active-study-btn')
 // functions
 
 function inputUserValues() {
@@ -54,21 +60,21 @@ function switchForm() {
   newActivityPage.classList.add('hidden')
 }
 
-function submit() {
-    event.preventDefault()
-    if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
-        // Why is the bang above working???
-        errorWrapper.classList.remove('hidden')
-    } else if ((userMinutes.value || userSeconds.value) === 'e') {
-//  Remember to write another error handler to stop numbers with a length longer than 2 from being entered for seconds/minutes (not >= 60)
-        errorWrapper.classList.remove('hidden')
-    } else {
-        var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
-        cards.push(activityCard)
-        switchForm()
-        inputUserValues()
-    }
-}
+// function submit() {
+//     event.preventDefault()
+//     if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
+//         // Why is the bang above working???
+//         errorWrapper.classList.remove('hidden')
+//     } else if ((userMinutes.value || userSeconds.value) === 'e') {
+// //  Remember to write another error handler to stop numbers with a length longer than 2 from being entered for seconds/minutes (not >= 60)
+//         errorWrapper.classList.remove('hidden')
+//     } else {
+//         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
+//         cards.push(activityCard)
+//         switchForm()
+//         inputUserValues()
+//     }
+// }
 
 function isBtnChecked() {
     for (var i = 0; i < radioBtns.length; i++) {
