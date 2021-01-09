@@ -11,47 +11,67 @@
   <h1>INTENTION TIMER</h1>
  </nav>
  <main>
-  <section class="new-activity">
+  <section class="new-activity" id="newActivityPage">
    <h2>New Activity</h2>
   <div class="form-wrapper">
    <form>
-   <section class="categories-wrapper">
-    <h3>Select a Category:</h3>
-    <section class="categories">
-     <button class="study-btn">
-      <img src="assets/study.svg" alt="light bulb">
+     <div class="categories-with-header">
+     <h3>Select a Category:</h3>
+     <section class="categories">
+      <input class="inactive-study-btn" type="radio" name="activity" id="studyBtn" value="study">
+      <label for="studyBtn">
+       <img src="assets/study.svg" alt="light bulb" id="studyBtnImg">
+       <img class="hidden" src="assets/study-active.svg" alt="green light bulb" id="studyBtnImgAct">
        <p>Study</p>
-     </button>
-     <button class="meditate-btn">
-      <img src="assets/meditate.svg" alt="flower">
+      </label>
+      <input class="inactive-meditate-btn" type="radio" name="activity" id="meditateBtn" value="meditate">
+      <label for="meditateBtn">
+       <img src="assets/meditate.svg" alt="lotus" id="meditateBtnImg">
+       <img class="hidden" src="assets/meditate-active.svg" alt="purple lotus" id="meditateBtnImgAct">
        <p>Meditate</p>
-     </button>
-     <button class="exercise-btn">
-      <img src="assets/exercise.svg" alt="shoe">
+      </label>
+      <input class="inactive-exercise-btn" type="radio" name="activity" id="exerciseBtn" value="exercise">
+      <label for="exerciseBtn">
+       <img src="assets/exercise.svg" alt="sneaker" id="exerciseBtnImg">
+       <img class="hidden" src="assets/exercise-active.svg" alt="red sneaker" id="exerciseBtnImgAct">
        <p>Exercise</p>
-    </button>
-   </section>
-  </section>
-  <div class="user-activity-wrapper label-style">
+      </label>
+    </div>
+  <div class="label-style">
     <p>What would you like to accomplish during this time?</p>
     <input class="user-activity input-style" type="text" id="userActivity">
+    <div class="error-wrapper hidden" id="errorWrapper">
+      <img src="assets/warning.svg">
+      <p class="activity-error">A description is required.</p>
+    </div>
   </div>
     <section class="user-time">
-      <div class="minutes-style label-style">
+      <div class="label-style">
       <p>Minutes</p>
-      <input class="user-minutes input-style" type="text" id="userMinutes">
+      <input class="user-minutes input-style" type="number" id="userMinutes"/>
     </div>
-    <div class="seconds-style label-style">
+    <div class="label-style">
       <p>Seconds</p>
-      <input class="user-seconds input-style" type="text" id="userSeconds">
+      <input class="user-seconds input-style" type="number" id="userSeconds"/>
     </div>
     </section>
     <div class="activity-button-wrapper">
-     <button class="start-activity">START ACTIVITY</button>
+     <button class="start-activity" type="button">START ACTIVITY</button>
     </div>
    </form>
   </div>
   </section>
+  <section class="new-activity timer hidden" id="timerPage">
+  <h2>Current Activity</h2>
+   <section class="timer-wrapper">
+    <div class="time-detail">
+     <p id="timerEvent">place holder</p>
+     <p class="time-function" id="displayTimer"></p>
+    </div>
+    <button class="start-btn" type="button" id="startTimerBtn">START</button>
+  </section>
+  </section>
+ </section>
   <section class="past-activities">
    <h2>Past Activities</h2>
    <p class="no-activities">You haven't logged any activities yet.</br> Complete the form to the left to get started!</p>
@@ -59,5 +79,5 @@
  </main>
 </body>
 <script type="text/javascript" src="main.js"></script>
-<script type="text/javascript" src="Activity.js"></script>
+<!-- <script type="text/javascript" src="./Activity.js"></script> -->
 </html>

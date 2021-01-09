@@ -1,3 +1,4 @@
+// module.exports = Activity;
 class Activity {
     constructor(category, description, minutes, seconds) {
         this.category = category
@@ -6,6 +7,7 @@ class Activity {
         this.seconds = seconds
         this.completed = false
         this.id = null
+        console.log('This is working')
     }
     countdown() {
 
@@ -20,4 +22,4 @@ class Activity {
     }
 }
 
-module.exports = Activity;
+// default export Activity;
