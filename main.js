@@ -49,8 +49,13 @@ startBtn.addEventListener('click', submit)
 studyBtn.addEventListener('click', changeImage)
 meditateBtn.addEventListener('click', changeImage)
 exerciseBtn.addEventListener('click', changeImage)
+startTimerBtn.addEventListener('click', startTimer)
 // global
 // studyBtnImg.classList.add('active-study-btn')
+function switchForm() {
+  timerPage.classList.remove('hidden')
+  newActivityPage.classList.remove('hidden')
+}
 // functions
 
 function inputUserValues() {
@@ -105,15 +110,35 @@ function changeImage() {
     if (radioBtns[i].checked && radioBtns[i].value === "study") {
     studyBtnImg.classList.toggle('hidden')
     studyBtnImgAct.classList.toggle('hidden')
+    // set timeout (func, time, element1, element2)
   } if (radioBtns[i].checked && radioBtns[i].value === "meditate") {
-    meditateBtnImg.classList.toggle('hidden')
-    meditateBtnImgAct.classList.toggle('hidden')
+    toggleHidden(meditateBtnImg, meditateBtnImgAct);
+    // toggleFunc() {
+    //   setTimeout
+    // }
+    // meditateBtnImg.classList.toggle('hidden')
+    // meditateBtnImgAct.classList.toggle('hidden')
+    setTimeout (toggleHidden, 1000, meditateBtnImg, meditateBtnImgAct)
   } if (radioBtns[i].checked && radioBtns[i].value === "exercise") {
     exerciseBtnImg.classList.toggle('hidden')
     exerciseBtnImgAct.classList.toggle('hidden')
+    // set timeout (func, time, element1, element2)
   }
  }
 }
+
+function toggleHidden (element1, element2) {
+  element1.classList.toggle('hidden')
+  element2.classList.toggle('hidden')
+  setTimeout (unToggleHidden, 1000, element1, element2)
+}
+
+function unToggleHidden (element1, element2) {
+  element1.classList.toggle('hidden')
+  element2.classList.toggle('hidden')
+}
+//Write a new function that fires after a delay to fire a seond round of toggles to essentially reset the image to the inactive image
+//set timeout (wait for set amount of time)
 
 function setStartBtnColor() {
   for (var i = 0; i < radioBtns.length; i++){
@@ -125,4 +150,8 @@ function setStartBtnColor() {
     startTimerBtn.style.borderColor = "#FD8078";
   }
  }
+}
+
+function startTimer() {
+  displayTimer.innerHTML = ``
 }
