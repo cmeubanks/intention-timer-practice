@@ -103,7 +103,6 @@ form {
 
 .timer-wrapper {
 	background-color: #46424D;
-	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -131,13 +130,6 @@ form {
     display: flex;
     flex-direction: row;
 	justify-content: space-between;
-}
-
-.categories-wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 button {
@@ -254,12 +246,6 @@ img {
     content: url('/assets/exercise-active.svg');
 }
 
-
-.user-activity-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
 .activity-button-wrapper {
 	display: flex;
 	justify-content: flex-end;
@@ -298,6 +284,7 @@ img {
     height: 20px;
     /* margin-top: 30px; */
     /* padding-bottom: 0; */
+		width: 100%;
     vertical-align: text-bottom;
     font-size: 18px;
     color: #CBC9CF;

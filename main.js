@@ -1,8 +1,8 @@
 // var Activity = require('./Activity.js');
 var cards = [];
-var studyBtn = document.getElementById('study-btn')
-var meditateBtn = document.getElementById('meditate-btn')
-var exerciseBtn = document.getElementById('exercise-btn')
+var studyBtn = document.getElementById('studyBtn')
+var meditateBtn = document.getElementById('meditateBtn')
+var exerciseBtn = document.getElementById('exerciseBtn')
 var radioBtns = document.querySelectorAll('input[type="radio"]')
 var startBtn = document.querySelector('.start-activity')
 var startTimerBtn = document.getElementById('startTimerBtn')
@@ -46,7 +46,9 @@ class Activity {
 
 // radioBtns.addEventListener('checked', activate)
 startBtn.addEventListener('click', submit)
-
+studyBtn.addEventListener('click', changeImage)
+meditateBtn.addEventListener('click', changeImage)
+exerciseBtn.addEventListener('click', changeImage)
 // global
 // studyBtnImg.classList.add('active-study-btn')
 // functions
@@ -73,7 +75,6 @@ function submit() {
         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
         cards.push(activityCard)
         inputUserValues()
-        setColor()
         switchForm()
     }
 }
@@ -94,13 +95,21 @@ function whichBtn() {
         theRightBtn = radioBtns[i].value
         return theRightBtn
         }
-    }    
+    }
 }
 
-function setColor() {
-    for (var i = 0; i < radioBtns.length; i++) {
-        if (radioBtns[i].checked && (radioBtns[i].value === 'study')) {
-            startTimerBtn.classList.add('start-study')
-        }
-    }
+
+function changeImage() {
+  for (var i = 0; i < radioBtns.length; i++){
+    if (radioBtns[i].checked && radioBtns[i].value === "study") {
+    studyBtnImg.classList.toggle('hidden')
+    studyBtnImgAct.classList.toggle('hidden')
+  } if (radioBtns[i].checked && radioBtns[i].value === "meditate") {
+    meditateBtnImg.classList.toggle('hidden')
+    meditateBtnImgAct.classList.toggle('hidden')
+  } if (radioBtns[i].checked && radioBtns[i].value === "exercise") {
+    exerciseBtnImg.classList.toggle('hidden')
+    exerciseBtnImgAct.classList.toggle('hidden')
+  }
+ }
 }
