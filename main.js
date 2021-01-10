@@ -1,4 +1,5 @@
-// var Activity = require('./Activity.js');
+// var Activity = require('./Activity.js
+// var activityCard;
 var cards = [];
 var studyBtn = document.getElementById('studyBtn')
 var meditateBtn = document.getElementById('meditateBtn')
@@ -13,7 +14,7 @@ var errorWrapper = document.getElementById('errorWrapper')
 var timerPage = document.getElementById('timerPage')
 var newActivityPage = document.getElementById('newActivityPage')
 var timerEvent = document.getElementById('timerEvent')
-var displayTimer = document.getElementById('displayTimer')
+var displayTimerFunction = document.getElementById('displayTimerFunction')
 var studyBtnImg = document.getElementById('studyBtnImg')
 var meditateBtnImg = document.getElementById('meditateBtnImg')
 var exerciseBtnImg = document.getElementById('exerciseBtnImg')
@@ -49,12 +50,17 @@ startBtn.addEventListener('click', submit)
 studyBtn.addEventListener('click', changeImage)
 meditateBtn.addEventListener('click', changeImage)
 exerciseBtn.addEventListener('click', changeImage)
+startTimerBtn.addEventListener('click', startTimer)
 // global
 // studyBtnImg.classList.add('active-study-btn')
+function switchForm() {
+  timerPage.classList.remove('hidden')
+  newActivityPage.classList.remove('hidden')
+}
 // functions
 
 function inputUserValues() {
-  displayTimer.innerText = `${userMinutes.value} : ${userSeconds.value}`
+  displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
   timerEvent.innerText = userActivity.value
 }
 
@@ -105,15 +111,35 @@ function changeImage() {
     if (radioBtns[i].checked && radioBtns[i].value === "study") {
     studyBtnImg.classList.toggle('hidden')
     studyBtnImgAct.classList.toggle('hidden')
+    // set timeout (func, time, element1, element2)
   } if (radioBtns[i].checked && radioBtns[i].value === "meditate") {
-    meditateBtnImg.classList.toggle('hidden')
-    meditateBtnImgAct.classList.toggle('hidden')
+    toggleHidden(meditateBtnImg, meditateBtnImgAct);
+    // toggleFunc() {
+    //   setTimeout
+    // }
+    // meditateBtnImg.classList.toggle('hidden')
+    // meditateBtnImgAct.classList.toggle('hidden')
+    setTimeout (toggleHidden, 1000, meditateBtnImg, meditateBtnImgAct)
   } if (radioBtns[i].checked && radioBtns[i].value === "exercise") {
     exerciseBtnImg.classList.toggle('hidden')
     exerciseBtnImgAct.classList.toggle('hidden')
+    // set timeout (func, time, element1, element2)
   }
  }
 }
+
+function toggleHidden (element1, element2) {
+  element1.classList.toggle('hidden')
+  element2.classList.toggle('hidden')
+  setTimeout (unToggleHidden, 1000, element1, element2)
+}
+
+function unToggleHidden (element1, element2) {
+  element1.classList.toggle('hidden')
+  element2.classList.toggle('hidden')
+}
+//Write a new function that fires after a delay to fire a seond round of toggles to essentially reset the image to the inactive image
+//set timeout (wait for set amount of time)
 
 function setStartBtnColor() {
   for (var i = 0; i < radioBtns.length; i++){
@@ -126,3 +152,41 @@ function setStartBtnColor() {
   }
  }
 }
+
+
+// var second = 1000;
+// var minute = second * 60;
+// var hour = minute * 60;
+
+function startTimer() {
+  startTimerBtn.disabled = true
+  var minuteStart = (+userMinutes.value * 60)
+  var secondStart = +userSeconds.value
+  var totalSeconds = (secondStart + minuteStart)
+
+  if (totalSeconds > 0) {
+  var intervalTimer = setInterval(timeLeft, 1000)
+  function timeLeft() {
+  totalSeconds--
+  var minutes = Math.floor(totalSeconds / 60);
+  var seconds = Math.floor(totalSeconds % 60);
+  displayTimerFunction.innerText = `${minutes} : ${seconds}`
+  if (totalSeconds === 0) {
+  clearInterval(intervalTimer)
+  alertTimeComplete()
+   }
+  }
+ }
+}
+
+function alertTimeComplete() {
+  startTimerBtn.innerText = "COMPLETE!"
+  alert('Time is up!')
+}
+
+// function startTimer() {
+//   debugger
+//   var startCountDown = timeLeft();
+//   displayTimer.innerHTML = `${startCountDown.minutes} : ${startCountDown.seconds}`
+//
+// }

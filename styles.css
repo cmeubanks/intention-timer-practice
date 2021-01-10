@@ -199,12 +199,14 @@ button > p {
     border-color: #C278FD;
     box-shadow: 0 0 10px #C278FD;
 }
+
 #studyBtn:checked + label,
 #studyBtn:hover + label {
     color: #B3FD78;
     border-color: #B3FD78;
     box-shadow: 0 0 10px #B3FD78;
 }
+
 #exerciseBtn:checked + label,
 #exerciseBtn:hover + label {
     color: #FD8078;
