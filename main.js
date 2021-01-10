@@ -60,7 +60,7 @@ function switchForm() {
 // functions
 
 function inputUserValues() {
-  // displayTimer.innerText = `${userMinutes.value} : ${userSeconds.value}`
+  displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
   timerEvent.innerText = userActivity.value
 }
 
@@ -173,12 +173,16 @@ function startTimer() {
   displayTimerFunction.innerText = `${minutes} : ${seconds}`
   if (totalSeconds === 0) {
   clearInterval(intervalTimer)
+  alertTimeComplete()
    }
   }
  }
 }
 
-
+function alertTimeComplete() {
+  startTimerBtn.innerText = "COMPLETE!"
+  alert('Time is up!')
+}
 
 // function startTimer() {
 //   debugger
