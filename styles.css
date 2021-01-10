@@ -193,7 +193,7 @@ button > p {
     padding: 10px;
 }
 
-#meditateBtn:checked + label,
+/* #meditateBtn:checked + label, */
 #meditateBtn:hover + label {
     color: #C278FD;
     border-color: #C278FD;
@@ -242,6 +242,7 @@ img {
 
 .active-meditate-btn {
     content: url('/assets/meditate-active.svg');
+
 }
 
 .active-exercise-btn {
@@ -311,3 +312,53 @@ img {
 .hidden {
         display: none;
     }
+
+.card-wrapper {
+    height: 600px;
+	margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 25px;
+    /* border: 3px solid red; */
+}
+
+.card {
+    background-color: #46424D;
+    margin: 18px;
+    height: 125px;
+    width: 100%;
+    box-shadow: 5px 5px 10px #201e29;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-details {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h4 {
+    font-size: large;
+    font-weight: 900;
+}
+
+.card-time {
+    font-size: larger;
+    font-weight: normal;
+}
+
+.card-activity {
+    font-style: italic;
+}
+
+.card-marker {
+    width: 5px;
+    height: 50px;
+    background: red;
+    margin: 10px;
+    border-radius: 2px;
+  }

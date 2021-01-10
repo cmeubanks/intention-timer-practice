@@ -17,6 +17,7 @@ var displayTimer = document.getElementById('displayTimer')
 var studyBtnImg = document.getElementById('studyBtnImg')
 var meditateBtnImg = document.getElementById('meditateBtnImg')
 var exerciseBtnImg = document.getElementById('exerciseBtnImg')
+var cardContainer = document.querySelector('.card-wrapper')
 
 
 
@@ -152,6 +153,20 @@ function setStartBtnColor() {
  }
 }
 
-function startTimer() {
-  displayTimer.innerHTML = ``
+function addCard(category, minSet, secSet, descrip) {
+  cardContainer.innerHTML += `
+  <div class="card">
+      <div class="card-details">
+      <div>
+        <h4>${category}</h4>
+        <p class="card-time" id="cardTime">${minSet} MINS ${secSet} SECONDS</p>
+      </div>
+        <p class="card-activity" id="card-activity">${descrip}</p>
+      </div>
+      <div class="marker-wrapper">
+        <div class="card-marker"></div>
+      </div>
+    </div>
+  `
+
 }
