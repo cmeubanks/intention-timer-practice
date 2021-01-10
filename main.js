@@ -18,6 +18,7 @@ var displayTimerFunction = document.getElementById('displayTimerFunction')
 var studyBtnImg = document.getElementById('studyBtnImg')
 var meditateBtnImg = document.getElementById('meditateBtnImg')
 var exerciseBtnImg = document.getElementById('exerciseBtnImg')
+var cardContainer = document.querySelector('.card-wrapper')
 
 
 
@@ -153,10 +154,23 @@ function setStartBtnColor() {
  }
 }
 
+function addCard(category, minSet, secSet, descrip) {
+  cardContainer.innerHTML += `
+  <div class="card">
+      <div class="card-details">
+      <div>
+        <h4>${category}</h4>
+        <p class="card-time" id="cardTime">${minSet} MINS ${secSet} SECONDS</p>
+      </div>
+        <p class="card-activity" id="card-activity">${descrip}</p>
+      </div>
+      <div class="marker-wrapper">
+        <div class="card-marker"></div>
+      </div>
+    </div>
+  `
 
-// var second = 1000;
-// var minute = second * 60;
-// var hour = minute * 60;
+}
 
 function startTimer() {
   startTimerBtn.disabled = true
@@ -183,10 +197,3 @@ function alertTimeComplete() {
   startTimerBtn.innerText = "COMPLETE!"
   alert('Time is up!')
 }
-
-// function startTimer() {
-//   debugger
-//   var startCountDown = timeLeft();
-//   displayTimer.innerHTML = `${startCountDown.minutes} : ${startCountDown.seconds}`
-//
-// }
