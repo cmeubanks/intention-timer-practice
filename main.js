@@ -59,7 +59,7 @@ function switchForm() {
 // functions
 
 function inputUserValues() {
-  displayTimer.innerText = `${userMinutes.value} : ${userSeconds.value}`
+  // displayTimer.innerText = `${userMinutes.value} : ${userSeconds.value}`
   timerEvent.innerText = userActivity.value
 }
 
@@ -152,6 +152,28 @@ function setStartBtnColor() {
  }
 }
 
-function startTimer() {
-  displayTimer.innerHTML = ``
+
+var second = 1000;
+var minute = second * 60;
+var hour = minute * 60;
+var timer
+
+function timeLeft() {
+  debugger
+  var minuteStart = userMinutes.value
+  var secondStart = userSeconds.value
+
+  var seconds = Math.floor((secondStart % minute) / second);
+  var minutes = Math.floor((minuteStart % hour) / minute);
+  return {
+    seconds, minutes
+ }
 }
+
+function startTimer() {
+  var countDown = timeLeft();
+  displayTimer.innerHTML = `${countDown.minutes} : ${countDown.seconds}`
+
+}
+
+timer = setInterval(startTimer, 1000)
