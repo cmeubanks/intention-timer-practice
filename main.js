@@ -1,4 +1,5 @@
-// var Activity = require('./Activity.js');
+// var Activity = require('./Activity.js
+// var activityCard;
 var cards = [];
 var studyBtn = document.getElementById('studyBtn')
 var meditateBtn = document.getElementById('meditateBtn')
@@ -13,7 +14,7 @@ var errorWrapper = document.getElementById('errorWrapper')
 var timerPage = document.getElementById('timerPage')
 var newActivityPage = document.getElementById('newActivityPage')
 var timerEvent = document.getElementById('timerEvent')
-var displayTimer = document.getElementById('displayTimer')
+var displayTimerFunction = document.getElementById('displayTimerFunction')
 var studyBtnImg = document.getElementById('studyBtnImg')
 var meditateBtnImg = document.getElementById('meditateBtnImg')
 var exerciseBtnImg = document.getElementById('exerciseBtnImg')
@@ -153,27 +154,35 @@ function setStartBtnColor() {
 }
 
 
-var second = 1000;
-var minute = second * 60;
-var hour = minute * 60;
-var timer
+// var second = 1000;
+// var minute = second * 60;
+// var hour = minute * 60;
 
-function timeLeft() {
-  debugger
-  var minuteStart = userMinutes.value
-  var secondStart = userSeconds.value
+function startTimer() {
+  startTimerBtn.disabled = true
+  var minuteStart = (+userMinutes.value * 60)
+  var secondStart = +userSeconds.value
+  var totalSeconds = (secondStart + minuteStart)
 
-  var seconds = Math.floor((secondStart % minute) / second);
-  var minutes = Math.floor((minuteStart % hour) / minute);
-  return {
-    seconds, minutes
+  if (totalSeconds > 0) {
+  var intervalTimer = setInterval(timeLeft, 1000)
+  function timeLeft() {
+  totalSeconds--
+  var minutes = Math.floor(totalSeconds / 60);
+  var seconds = Math.floor(totalSeconds % 60);
+  displayTimerFunction.innerText = `${minutes} : ${seconds}`
+  if (totalSeconds === 0) {
+  clearInterval(intervalTimer)
+   }
+  }
  }
 }
 
-function startTimer() {
-  var countDown = timeLeft();
-  displayTimer.innerHTML = `${countDown.minutes} : ${countDown.seconds}`
 
-}
 
-timer = setInterval(startTimer, 1000)
+// function startTimer() {
+//   debugger
+//   var startCountDown = timeLeft();
+//   displayTimer.innerHTML = `${startCountDown.minutes} : ${startCountDown.seconds}`
+//
+// }
