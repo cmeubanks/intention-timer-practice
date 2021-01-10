@@ -1,4 +1,5 @@
-// var Activity = require('./Activity.js');
+// var Activity = require('./Activity.js
+// var activityCard;
 var cards = [];
 var studyBtn = document.getElementById('studyBtn')
 var meditateBtn = document.getElementById('meditateBtn')
@@ -13,7 +14,7 @@ var errorWrapper = document.getElementById('errorWrapper')
 var timerPage = document.getElementById('timerPage')
 var newActivityPage = document.getElementById('newActivityPage')
 var timerEvent = document.getElementById('timerEvent')
-var displayTimer = document.getElementById('displayTimer')
+var displayTimerFunction = document.getElementById('displayTimerFunction')
 var studyBtnImg = document.getElementById('studyBtnImg')
 var meditateBtnImg = document.getElementById('meditateBtnImg')
 var exerciseBtnImg = document.getElementById('exerciseBtnImg')
@@ -60,7 +61,7 @@ function switchForm() {
 // functions
 
 function inputUserValues() {
-  displayTimer.innerText = `${userMinutes.value} : ${userSeconds.value}`
+  displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
   timerEvent.innerText = userActivity.value
 }
 
@@ -169,4 +170,30 @@ function addCard(category, minSet, secSet, descrip) {
     </div>
   `
 
+}
+
+function startTimer() {
+  startTimerBtn.disabled = true
+  var minuteStart = (+userMinutes.value * 60)
+  var secondStart = +userSeconds.value
+  var totalSeconds = (secondStart + minuteStart)
+
+  if (totalSeconds > 0) {
+  var intervalTimer = setInterval(timeLeft, 1000)
+  function timeLeft() {
+  totalSeconds--
+  var minutes = Math.floor(totalSeconds / 60);
+  var seconds = Math.floor(totalSeconds % 60);
+  displayTimerFunction.innerText = `${minutes} : ${seconds}`
+  if (totalSeconds === 0) {
+  clearInterval(intervalTimer)
+  alertTimeComplete()
+   }
+  }
+ }
+}
+
+function alertTimeComplete() {
+  startTimerBtn.innerText = "COMPLETE!"
+  alert('Time is up!')
 }
