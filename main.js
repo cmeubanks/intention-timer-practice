@@ -1,6 +1,7 @@
 // var Activity = require('./Activity.js
 // var activityCard;
 var cards = [];
+var ids = [];
 var studyBtn = document.getElementById('studyBtn')
 var meditateBtn = document.getElementById('meditateBtn')
 var exerciseBtn = document.getElementById('exerciseBtn')
@@ -35,7 +36,7 @@ class Activity {
         this.minutes = minutes
         this.seconds = seconds
         this.completed = false
-        this.id = null
+        this.id = Date.now()
     }
     countdown() {
 
@@ -46,9 +47,12 @@ class Activity {
     }
 
     saveToStorage() {
-
+    var objectToStore = this.id.toString();
+    localStorage.setItem(objectToStore, JSON.stringify(this))
     }
 }
+// 4 st to localStorage
+// stringify, set item, get item, json.parse
 // global
 const compliments = ["Respects",
 "Fantastic",
@@ -104,17 +108,42 @@ exerciseBtn.addEventListener('click', changeImage)
 startTimerBtn.addEventListener('click', startTimer)
 logActBtn.addEventListener('click', populate)
 createNewBtn.addEventListener('click', backtoForm)
+window.addEventListener('load', loopIDs)
+// window.addEventListener('load', reloadCards)
+
 // studyBtnImg.classList.add('active-study-btn')
 function switchForm() {
   timerPage.classList.remove('hidden')
   newActivityPage.classList.remove('hidden')
 }
 // functions
+function loopIDs() {
+  if(ids.length > 0) {
+    for(i = 0; i < ids.length; i++) {
+      var retrieve = localStorage.getItem(ids[i])
+      var parsedObject = JSON.parse(retrieve)
+      cards.push(parsedObject)
+  }
+  }
+  reloadCards()
+}
+
 
 function backtoForm() {
+  startTimerBtn.disabled = false
+  startTimerBtn.innerText = "START"
   completedPage.classList.add('hidden')
   newActivityPage.classList.remove('hidden')
-}
+  userActivity.value = '';
+  userMinutes.value = '';
+  userSeconds.value = '';
+  for (var i = 0; i < radioBtns.length; i++) {
+      if (radioBtns[i].checked) {
+        radioBtns[i].checked = false;
+      }
+    }
+  }
+
 
 function inputUserValues() {
   if(userSeconds.value < 10) {
@@ -143,6 +172,8 @@ function submit() {
     } else {
         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
         cards.push(activityCard)
+        ids.push(activityCard.id)
+        activityCard.saveToStorage()
         inputUserValues()
         switchForm()
         setStartBtnColor()
@@ -230,6 +261,10 @@ function populate() {
   noAct.classList.add('hidden')
   timerPage.classList.add('hidden')
   completedPage.classList.remove('hidden')
+  reloadCards()
+}
+
+  function reloadCards() {
   deck.classList.remove('hidden')
   cardWrapper.innerHTML = ''
   for (var i = 0; i < cards.length; i++) {
@@ -248,7 +283,8 @@ function populate() {
       </div>
     `
   }
-}
+ }
+
 
 function startTimer() {
   startTimerBtn.disabled = true
@@ -282,14 +318,14 @@ function startTimer() {
 function showLogBtn() {
  logActBtn.classList.remove('hidden')
 }
-
-function clearTimer() {
-  userActivity.innerText = '';
-  userMinutes.innerText = '';
-  userSeconds.innerText = '';
-  for (var i = 0; i < radioBtns.length; i++) {
-      if (radioBtns[i].checked) {
-        radioBtns[i].checked = false;
-      }
-    }
-  }
+//
+// function clearTimer() {
+//   userActivity.innerText = '';
+//   userMinutes.innerText = '';
+//   userSeconds.innerText = '';
+//   for (var i = 0; i < radioBtns.length; i++) {
+//       if (radioBtns[i].checked) {
+//         radioBtns[i].checked = false;
+//       }
+//     }
+//   }
