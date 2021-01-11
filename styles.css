@@ -273,6 +273,10 @@ img {
     font-size: large;
 }
 
+.time-input {
+    width: 40%;
+}
+
 .user-time {
     display: flex;
     justify-content: space-between;
@@ -328,7 +332,7 @@ img {
 }
 
 .card-wrapper {
-	margin-top: 50px;
+	margin-top: 25px;
     display: flex;
     flex-direction: column-reverse;
     padding: 0px 25px;

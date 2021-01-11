@@ -25,8 +25,7 @@ var deck = document.getElementById('deck')
 var completedPage = document.getElementById('completedPage')
 var timerWrapper = document.getElementById('timerWrapper')
 var createNewBtn = document.getElementById('createNewBtn')
-var deck = document.getElementById('deck') 
-
+var deck = document.getElementById('deck')
 
 // Activity Class Constructor
 class Activity {
@@ -114,7 +113,7 @@ function switchForm() {
 
 function backtoForm() {
   completedPage.classList.add('hidden')
-  
+  newActivityPage.classList.remove('hidden')
 }
 
 function inputUserValues() {
@@ -226,6 +225,7 @@ function populate() {
   timerPage.classList.add('hidden')
   completedPage.classList.remove('hidden')
   deck.classList.remove('hidden')
+  cardWrapper.innerHTML = ''
   for (var i = 0; i < cards.length; i++) {
     cardWrapper.innerHTML += `
     <div class="card">
@@ -242,8 +242,6 @@ function populate() {
       </div>
     `
   }
-  
-  
 }
 
 function startTimer() {
@@ -253,18 +251,17 @@ function startTimer() {
   var totalSeconds = (secondStart + minuteStart)
 
   if (totalSeconds > 0) {
-  var intervalTimer = setInterval(timeLeft, 1000)
-  function timeLeft() {
-  totalSeconds--
-  var minutes = Math.floor(totalSeconds / 60);
-  var seconds = Math.floor(totalSeconds % 60);
-  displayTimerFunction.innerText = `${minutes} : ${seconds}`
-    if (totalSeconds === 0) {
-    clearInterval(intervalTimer)
-    startTimerBtn.innerText = "COMPLETE!"
-    displayTimerFunction.innerText = `${compliments[Math.floor(Math.random()*compliments.length)]}`
-    // alertTimeComplete()
-    showLogBtn()
+    var intervalTimer = setInterval(timeLeft, 1000)
+    function timeLeft() {
+      totalSeconds--
+      var minutes = Math.floor(totalSeconds / 60);
+      var seconds = Math.floor(totalSeconds % 60);
+      displayTimerFunction.innerText = `${minutes} : ${seconds}`
+      if (totalSeconds === 0) {
+        clearInterval(intervalTimer)
+        startTimerBtn.innerText = "COMPLETE!"
+        displayTimerFunction.innerText = `${compliments[Math.floor(Math.random()*compliments.length)]}`
+        showLogBtn()
    }
   }
  }
