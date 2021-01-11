@@ -264,6 +264,15 @@ img {
 		font-size: large;
 }
 
+.log-act-btn {
+    margin-top: 50px;
+    background-color: #CBC9CF;
+    width: 300px;
+    color: #2B2733;
+    padding: 7px;
+    font-size: large;
+}
+
 .user-time {
     display: flex;
     justify-content: space-between;
@@ -310,24 +319,29 @@ img {
     margin-top: 17px;
 }
 .hidden {
-        display: none;
-    }
+    display: none;
+}
+
+.deck {
+ height: 100%;
+ width: 100%;
+}
 
 .card-wrapper {
-    height: 600px;
 	margin-top: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 0px 25px;
     /* border: 3px solid red; */
 }
 
 .card {
+    color: FFF;
     background-color: #46424D;
     margin: 18px;
     height: 125px;
     width: 100%;
-    box-shadow: 5px 5px 10px #201e29;
+    box-shadow: 5px 5px 12px #26222D;
     border-radius: 7px;
     display: flex;
     flex-direction: row;
@@ -358,7 +372,24 @@ h4 {
 .card-marker {
     width: 5px;
     height: 50px;
-    background: red;
+    /* background: red; */
     margin: 10px;
     border-radius: 2px;
   }
+
+  .create-new-wrapper {
+      display: flex;
+      justify-content: center;
+      background-color: #46424D;
+      height: 75vh;
+      margin: 35px;
+  }
+
+.create-new-btn {
+    margin-top: 150px;
+    height: 50px;
+    width: 500px;
+    background-color: #CBC9CF;
+    color:#2B2733;
+    font-size: large;
+}
