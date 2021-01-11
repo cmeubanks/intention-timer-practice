@@ -117,6 +117,12 @@ function backtoForm() {
 }
 
 function inputUserValues() {
+  if(userSeconds.value < 10) {
+    userSeconds.value = `0` + `${userSeconds.value}`
+  }
+  if(userMinutes.value < 10) {
+    userMinutes.value = `0` + `${userMinutes.value}`
+  }
   displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
   timerEvent.innerText = userActivity.value
 }
@@ -256,6 +262,12 @@ function startTimer() {
       totalSeconds--
       var minutes = Math.floor(totalSeconds / 60);
       var seconds = Math.floor(totalSeconds % 60);
+        if(seconds < 10) {
+          seconds = `0` + `${seconds}`
+          }
+        if(minutes < 10) {
+          minutes = `0` + `${minutes}`
+          }
       displayTimerFunction.innerText = `${minutes} : ${seconds}`
       if (totalSeconds === 0) {
         clearInterval(intervalTimer)
@@ -268,5 +280,16 @@ function startTimer() {
 }
 
 function showLogBtn() {
-  logActBtn.classList.remove('hidden')
+ logActBtn.classList.remove('hidden')
 }
+
+function clearTimer() {
+  userActivity.innerText = '';
+  userMinutes.innerText = '';
+  userSeconds.innerText = '';
+  for (var i = 0; i < radioBtns.length; i++) {
+      if (radioBtns[i].checked) {
+        radioBtns[i].checked = false;
+      }
+    }
+  }
