@@ -107,7 +107,10 @@ exerciseBtn.addEventListener('click', changeImage)
 startTimerBtn.addEventListener('click', startTimer)
 logActBtn.addEventListener('click', populate)
 createNewBtn.addEventListener('click', backtoForm)
+// userMinutes.addEventListener('keyup', preventTimerErrors)
+// userSeconds.addEventListener('keyup', preventTimerErrors)
 window.addEventListener('load', loadStorage)
+
 // window.addEventListener('load', reloadCards)
 
 // studyBtnImg.classList.add('active-study-btn')
@@ -159,10 +162,10 @@ function backtoForm() {
 
 
 function inputUserValues() {
-  if(userSeconds.value < 10) {
+  if(userSeconds.value < 10 && userSeconds.value != '00') {
     userSeconds.value = `0` + `${userSeconds.value}`
   }
-  if(userMinutes.value < 10) {
+  if(userMinutes.value < 10 && userMinutes.value != '00') {
     userMinutes.value = `0` + `${userMinutes.value}`
   }
   displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
@@ -174,13 +177,22 @@ function switchForm() {
   newActivityPage.classList.add('hidden')
 }
 
+// function preventTimerErrors() {
+//   var invalidNumber = 00;
+//   var invalidString = 'e';
+//  if(event.key === invalidNumber || invalidString) {
+//    event.preventDefault();
+//      userMinutes.value.replace(/^0+/, '')
+//      userSeconds.value.replace(/^0+/, '')
+// }
+// }
+
 function submit() {
     event.preventDefault()
     if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
         // Why is the bang above working???
         errorWrapper.classList.remove('hidden')
-    } else if ((userMinutes.value || userSeconds.value) === 'e') {
-//  Remember to write another error handler to stop numbers with a length longer than 2 from being entered for seconds/minutes (not >= 60)
+    } else if ((userMinutes.value || userSeconds.value) == 'e') {
         errorWrapper.classList.remove('hidden')
     } else {
         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
@@ -311,10 +323,10 @@ function startTimer() {
       totalSeconds--
       var minutes = Math.floor(totalSeconds / 60);
       var seconds = Math.floor(totalSeconds % 60);
-        if(seconds < 10) {
+        if(seconds < 10 && seconds != '00') {
           seconds = `0` + `${seconds}`
           }
-        if(minutes < 10) {
+        if(minutes < 10 && seconds != '00') {
           minutes = `0` + `${minutes}`
           }
       displayTimerFunction.innerText = `${minutes} : ${seconds}`
