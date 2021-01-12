@@ -162,15 +162,19 @@ function backtoForm() {
 
 
 function inputUserValues() {
-  if(userSeconds.value < 10 && userSeconds.value != '00') {
+  // numbersArray = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09'];
+  // for( i = 0; i < numbersArray.length; i++)
+  // event.preventDefault();
+  if(userSeconds.value < 10 && userSeconds.value != "00") {
     userSeconds.value = `0` + `${userSeconds.value}`
   }
-  if(userMinutes.value < 10 && userMinutes.value != '00') {
+  if(userMinutes.value < 10 && userMinutes.value != "00") {
     userMinutes.value = `0` + `${userMinutes.value}`
   }
   displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
   timerEvent.innerText = userActivity.value
-}
+ }
+
 
 function switchForm() {
   timerPage.classList.remove('hidden')
