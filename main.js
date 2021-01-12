@@ -107,8 +107,8 @@ exerciseBtn.addEventListener('click', changeImage)
 startTimerBtn.addEventListener('click', startTimer)
 logActBtn.addEventListener('click', populate)
 createNewBtn.addEventListener('click', backtoForm)
-// userMinutes.addEventListener('keyup', preventTimerErrors)
-// userSeconds.addEventListener('keyup', preventTimerErrors)
+userMinutes.addEventListener('keypress', preventTimerErrors)
+userSeconds.addEventListener('keypress', preventTimerErrors)
 window.addEventListener('load', loadStorage)
 
 // window.addEventListener('load', reloadCards)
@@ -177,15 +177,11 @@ function switchForm() {
   newActivityPage.classList.add('hidden')
 }
 
-// function preventTimerErrors() {
-//   var invalidNumber = 00;
-//   var invalidString = 'e';
-//  if(event.key === invalidNumber || invalidString) {
-//    event.preventDefault();
-//      userMinutes.value.replace(/^0+/, '')
-//      userSeconds.value.replace(/^0+/, '')
-// }
-// }
+function preventTimerErrors(event) {
+ if(event.which < 1 || event.which > 60) {
+   event.preventDefault();
+}
+}
 
 function submit() {
     event.preventDefault()
