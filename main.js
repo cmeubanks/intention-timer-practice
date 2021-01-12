@@ -51,8 +51,7 @@ class Activity {
     localStorage.setItem(objectToStore, JSON.stringify(this))
     }
 }
-// 4 st to localStorage
-// stringify, set item, get item, json.parse
+
 // global
 const compliments = ["Respects",
 "Fantastic",
@@ -108,7 +107,7 @@ exerciseBtn.addEventListener('click', changeImage)
 startTimerBtn.addEventListener('click', startTimer)
 logActBtn.addEventListener('click', populate)
 createNewBtn.addEventListener('click', backtoForm)
-window.addEventListener('load', loopIDs)
+window.addEventListener('load', loadStorage)
 // window.addEventListener('load', reloadCards)
 
 // studyBtnImg.classList.add('active-study-btn')
@@ -117,16 +116,30 @@ function switchForm() {
   newActivityPage.classList.remove('hidden')
 }
 // functions
-function loopIDs() {
-  if(ids.length > 0) {
-    for(i = 0; i < ids.length; i++) {
-      var retrieve = localStorage.getItem(ids[i])
-      var parsedObject = JSON.parse(retrieve)
-      cards.push(parsedObject)
+
+function loadStorage() {
+  var justIds = Object.keys(localStorage)
+  if (justIds.length > 0) {
+    noAct.classList.add('hidden')
+    deck.classList.remove('hidden')
+    for (var i = 0; i < justIds.length; i++) {
+      var hold = JSON.parse(localStorage.getItem(justIds[i]))
+      cards.push(hold)
+    }
+    reloadCards();
   }
-  }
-  reloadCards()
 }
+
+// function loopIDs() {
+//   if(ids.length > 0) {
+//     for(i = 0; i < ids.length; i++) {
+//       var retrieve = localStorage.getItem('objectToStore')
+//       var parsedObject = JSON.parse(retrieve)
+//       cards.push(parsedObject)
+//   }
+//   }
+//   reloadCards()
+// }
 
 
 function backtoForm() {
