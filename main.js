@@ -1,6 +1,5 @@
 // var Activity = require('./Activity.js
 
-var cards = [];
 var studyBtn = document.getElementById('studyBtn')
 var meditateBtn = document.getElementById('meditateBtn')
 var exerciseBtn = document.getElementById('exerciseBtn')
@@ -28,28 +27,28 @@ var createNewBtn = document.getElementById('createNewBtn')
 var deck = document.getElementById('deck')
 
 // Activity Class Constructor
-class Activity {
-    constructor(category, description, minutes, seconds) {
-        this.category = category
-        this.description = description
-        this.minutes = minutes
-        this.seconds = seconds
-        this.completed = false
-        this.id = Date.now()
-    }
-    countdown() {
+// class Activity {
+//     constructor(category, description, minutes, seconds) {
+//         this.category = category
+//         this.description = description
+//         this.minutes = minutes
+//         this.seconds = seconds
+//         this.completed = false
+//         this.id = Date.now()
+//     }
+//     countdown() {
 
-    }
+//     }
 
-    markComplete() {
+//     markComplete() {
 
-    }
+//     }
 
-    saveToStorage() {
-    var objectToStore = this.id.toString();
-    localStorage.setItem(objectToStore, JSON.stringify(this))
-    }
-}
+//     saveToStorage() {
+//     var objectToStore = this.id.toString();
+//     localStorage.setItem(objectToStore, JSON.stringify(this))
+//     }
+// }
 
 // global
 const compliments = ["Respects",
@@ -175,7 +174,7 @@ function submit() {
     } else {
         var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
         cards.push(activityCard)
-        ids.push(activityCard.id)
+        // ids.push(activityCard.id)
         activityCard.saveToStorage()
         inputUserValues()
         switchForm()
@@ -235,6 +234,7 @@ function populate() {
   deck.classList.remove('hidden')
   cardWrapper.innerHTML = ''
   for (var i = 0; i < cards.length; i++) {
+    // Change div to a semantic tag
     cardWrapper.innerHTML += `
     <div class="card">
         <div class="card-details">
@@ -271,7 +271,7 @@ function startTimer() {
           minutes = `0` + `${minutes}`
           }
       displayTimerFunction.innerText = `${minutes} : ${seconds}`
-      if (totalSeconds === 0) {
+      if (!totalSeconds) {
         clearInterval(intervalTimer)
         startTimerBtn.innerText = "COMPLETE!"
         displayTimerFunction.innerText = `${compliments[Math.floor(Math.random()*compliments.length)]}`
@@ -284,3 +284,6 @@ function startTimer() {
 function showLogBtn() {
  logActBtn.classList.remove('hidden')
 }
+
+
+// classList add/remove , write a function that takes a parameter
