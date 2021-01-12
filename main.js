@@ -1,7 +1,6 @@
 // var Activity = require('./Activity.js
-// var activityCard;
+
 var cards = [];
-var ids = [];
 var studyBtn = document.getElementById('studyBtn')
 var meditateBtn = document.getElementById('meditateBtn')
 var exerciseBtn = document.getElementById('exerciseBtn')
@@ -99,11 +98,8 @@ const compliments = ["Respects",
 "Keep working, you’re getting better",
 "I’m happy to see you working like that."]
 
-// radioBtns.addEventListener('checked', activate)
+
 startBtn.addEventListener('click', submit)
-studyBtn.addEventListener('click', changeImage)
-meditateBtn.addEventListener('click', changeImage)
-exerciseBtn.addEventListener('click', changeImage)
 startTimerBtn.addEventListener('click', startTimer)
 logActBtn.addEventListener('click', populate)
 createNewBtn.addEventListener('click', backtoForm)
@@ -111,14 +107,12 @@ userMinutes.addEventListener('keypress', preventTimerErrors)
 userSeconds.addEventListener('keypress', preventTimerErrors)
 window.addEventListener('load', loadStorage)
 
-// window.addEventListener('load', reloadCards)
+//functions
 
-// studyBtnImg.classList.add('active-study-btn')
 function switchForm() {
   timerPage.classList.remove('hidden')
   newActivityPage.classList.remove('hidden')
 }
-// functions
 
 function loadStorage() {
   var justIds = Object.keys(localStorage)
@@ -132,18 +126,6 @@ function loadStorage() {
     reloadCards();
   }
 }
-
-// function loopIDs() {
-//   if(ids.length > 0) {
-//     for(i = 0; i < ids.length; i++) {
-//       var retrieve = localStorage.getItem('objectToStore')
-//       var parsedObject = JSON.parse(retrieve)
-//       cards.push(parsedObject)
-//   }
-//   }
-//   reloadCards()
-// }
-
 
 function backtoForm() {
   startTimerBtn.disabled = false
@@ -162,13 +144,10 @@ function backtoForm() {
 
 
 function inputUserValues() {
-  // numbersArray = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09'];
-  // for( i = 0; i < numbersArray.length; i++)
-  // event.preventDefault();
-  if(userSeconds.value < 10 && userSeconds.value != "00") {
+  if(userSeconds.value < 10 && userSeconds.value.charAt(0) !== '0') {
     userSeconds.value = `0` + `${userSeconds.value}`
   }
-  if(userMinutes.value < 10 && userMinutes.value != "00") {
+  if(userMinutes.value < 10 && userMinutes.value.charAt(0) !== '0') {
     userMinutes.value = `0` + `${userMinutes.value}`
   }
   displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
@@ -190,7 +169,6 @@ function preventTimerErrors(event) {
 function submit() {
     event.preventDefault()
     if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
-        // Why is the bang above working???
         errorWrapper.classList.remove('hidden')
     } else if ((userMinutes.value || userSeconds.value) == 'e') {
         errorWrapper.classList.remove('hidden')
@@ -223,42 +201,6 @@ function whichBtn() {
         }
     }
 }
-
-
-function changeImage() {
-  for (var i = 0; i < radioBtns.length; i++){
-    if (radioBtns[i].checked && radioBtns[i].value === "study") {
-    studyBtnImg.classList.toggle('hidden')
-    studyBtnImgAct.classList.toggle('hidden')
-    // set timeout (func, time, element1, element2)
-  } if (radioBtns[i].checked && radioBtns[i].value === "meditate") {
-    toggleHidden(meditateBtnImg, meditateBtnImgAct);
-    // toggleFunc() {
-    //   setTimeout
-    // }
-    // meditateBtnImg.classList.toggle('hidden')
-    // meditateBtnImgAct.classList.toggle('hidden')
-    setTimeout (toggleHidden, 1000, meditateBtnImg, meditateBtnImgAct)
-  } if (radioBtns[i].checked && radioBtns[i].value === "exercise") {
-    exerciseBtnImg.classList.toggle('hidden')
-    exerciseBtnImgAct.classList.toggle('hidden')
-    // set timeout (func, time, element1, element2)
-  }
- }
-}
-
-function toggleHidden (element1, element2) {
-  element1.classList.toggle('hidden')
-  element2.classList.toggle('hidden')
-  setTimeout (unToggleHidden, 1000, element1, element2)
-}
-
-function unToggleHidden (element1, element2) {
-  element1.classList.toggle('hidden')
-  element2.classList.toggle('hidden')
-}
-//Write a new function that fires after a delay to fire a seond round of toggles to essentially reset the image to the inactive image
-//set timeout (wait for set amount of time)
 
 function setStartBtnColor() {
   for (var i = 0; i < radioBtns.length; i++){
@@ -310,7 +252,6 @@ function populate() {
   }
  }
 
-
 function startTimer() {
   startTimerBtn.disabled = true
   var minuteStart = (+userMinutes.value * 60)
@@ -343,14 +284,3 @@ function startTimer() {
 function showLogBtn() {
  logActBtn.classList.remove('hidden')
 }
-//
-// function clearTimer() {
-//   userActivity.innerText = '';
-//   userMinutes.innerText = '';
-//   userSeconds.innerText = '';
-//   for (var i = 0; i < radioBtns.length; i++) {
-//       if (radioBtns[i].checked) {
-//         radioBtns[i].checked = false;
-//       }
-//     }
-//   }

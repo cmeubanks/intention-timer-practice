@@ -151,7 +151,6 @@ button > p {
 }
 
 .start-btn {
-	/* border-color: pink; */
 	min-height: 250px;
 	width: 250px;
 	line-height: 250px;
@@ -193,8 +192,43 @@ button > p {
     padding: 10px;
 }
 
-/* #meditateBtn:checked + label, */
+label > p {
+	margin-top: 35px;
+	padding-top: 10px;
+
+}
+
+#studyBtn + label {
+    background-image: url('assets/study.svg');
+		background-repeat: no-repeat;
+		background-position: 50% 25%;
+		background-size: 30px;
+		padding-top: 0;
+
+	}
+
+#meditateBtn + label {
+	  background-image: url('assets/meditate.svg');
+		background-repeat: no-repeat;
+		background-position: 50% 25%;
+		background-size: 30px;
+		padding-top: 0;
+
+		}
+
+#exerciseBtn + label {
+		background-image: url('assets/exercise.svg');
+		background-repeat: no-repeat;
+		background-position: 50% 25%;
+		background-size: 30px;
+		padding-top: 0;
+
+		}
+
+#meditateBtn:checked + label,
 #meditateBtn:hover + label {
+		background-image: url('assets/meditate-active.svg');
+		background-repeat: no-repeat;
     color: #C278FD;
     border-color: #C278FD;
     box-shadow: 0 0 10px #C278FD;
@@ -202,6 +236,9 @@ button > p {
 
 #studyBtn:checked + label,
 #studyBtn:hover + label {
+		background-image: url('assets/study-active.svg');
+		background-repeat: no-repeat;
+		background-size: 30px;
     color: #B3FD78;
     border-color: #B3FD78;
     box-shadow: 0 0 10px #B3FD78;
@@ -209,6 +246,8 @@ button > p {
 
 #exerciseBtn:checked + label,
 #exerciseBtn:hover + label {
+		background-image: url('assets/exercise-active.svg');
+		background-repeat: no-repeat;
     color: #FD8078;
     border-color: #FD8078;
     box-shadow: 0 0 10px #FD8078;
@@ -222,31 +261,6 @@ img {
 .meditate-btn,
 .exercise-btn {
     padding: 30px;
-}
-
-.inactive-study-btn {
-    content: url('/assets/study.svg');
-}
-
-.inactive-meditate-btn {
-    content: url('/assets/meditate.svg');
-}
-
-.inactive-exercise-btn {
-    content: url('/assets/exercise.svg');
-}
-
-.active-study-btn {
-    content: url('/assets/study-active.svg');
-}
-
-.active-meditate-btn {
-    content: url('/assets/meditate-active.svg');
-
-}
-
-.active-exercise-btn {
-    content: url('/assets/exercise-active.svg');
 }
 
 .activity-button-wrapper {
@@ -298,8 +312,6 @@ img {
 		border:	0;
     border-bottom: 3px solid #CBC9CF;
     height: 20px;
-    /* margin-top: 30px; */
-    /* padding-bottom: 0; */
 		width: 100%;
     vertical-align: text-bottom;
     font-size: 18px;
@@ -376,7 +388,6 @@ h4 {
 .card-marker {
     width: 5px;
     height: 50px;
-    /* background: red; */
     margin: 10px;
     border-radius: 2px;
   }
