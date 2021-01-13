@@ -1,4 +1,3 @@
-// module.exports = Activity;
 class Activity {
     constructor(category, description, minutes, seconds) {
         this.category = category
@@ -6,8 +5,7 @@ class Activity {
         this.minutes = minutes
         this.seconds = seconds
         this.completed = false
-        this.id = null
-        console.log('This is working')
+        this.id = Date.now()
     }
     countdown() {
 
@@ -18,8 +16,7 @@ class Activity {
     }
 
     saveToStorage() {
-
+    var objectToStore = this.id.toString();
+    localStorage.setItem(objectToStore, JSON.stringify(this))
     }
 }
-
-// default export Activity;

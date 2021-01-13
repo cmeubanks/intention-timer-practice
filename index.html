@@ -16,36 +16,30 @@
   <div class="form-wrapper">
    <form>
      <div class="categories-with-header">
-     <h3>Select a Category:</h3>
-     <section class="categories">
-      <input class="inactive-study-btn" type="radio" name="activity" id="studyBtn" value="study">
-      <label for="studyBtn">
-       <img src="assets/study.svg" alt="light bulb" id="studyBtnImg">
-       <img class="hidden" src="assets/study-active.svg" alt="green light bulb" id="studyBtnImgAct">
-       <p>Study</p>
-      </label>
-      <input class="inactive-meditate-btn" type="radio" name="activity" id="meditateBtn" value="meditate">
-      <label for="meditateBtn">
-       <img src="assets/meditate.svg" alt="lotus" id="meditateBtnImg">
-       <img class="hidden" src="assets/meditate-active.svg" alt="purple lotus" id="meditateBtnImgAct">
-       <p>Meditate</p>
-      </label>
-      <input class="inactive-exercise-btn" type="radio" name="activity" id="exerciseBtn" value="exercise">
-      <label for="exerciseBtn">
-       <img src="assets/exercise.svg" alt="sneaker" id="exerciseBtnImg">
-       <img class="hidden" src="assets/exercise-active.svg" alt="red sneaker" id="exerciseBtnImgAct">
-       <p>Exercise</p>
-      </label>
-    </div>
-  <div class="label-style">
-    <p>What would you like to accomplish during this time?</p>
-    <input class="user-activity input-style" type="text" id="userActivity">
-    <div class="error-wrapper hidden" id="errorWrapper">
-      <img src="assets/warning.svg">
-      <p class="activity-error">A description is required.</p>
-    </div>
-  </div>
-    <section class="user-time">
+       <h3>Select a Category:</h3>
+       <section class="categories">
+          <input class="inactive-study-btn" type="radio" name="activity" id="studyBtn" value="study">
+          <label for="studyBtn">
+            <p>Study</p>
+          </label>
+          <input class="inactive-meditate-btn" type="radio" name="activity" id="meditateBtn" value="meditate">
+          <label for="meditateBtn">
+            <p>Meditate</p>
+          </label>
+          <input class="inactive-exercise-btn" type="radio" name="activity" id="exerciseBtn" value="exercise">
+          <label for="exerciseBtn">
+            <p>Exercise</p>
+          </label>
+      </div>
+      <div class="label-style">
+        <p>What would you like to accomplish during this time?</p>
+        <input class="user-activity input-style" type="text" id="userActivity">
+        <div class="error-wrapper hidden" id="errorWrapper">
+          <img src="assets/warning.svg">
+          <p class="activity-error">A description is required.</p>
+        </div>
+      </div>
+      <section class="user-time">
       <div class="time-input label-style">
       <p>Minutes</p>
       <input class="user-minutes input-style" type="text" maxlength="2" id="userMinutes"/>
@@ -88,5 +82,7 @@
   </section>
  </main>
 </body>
-<script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="Activity.js"></script>
+  <script type="text/javascript" src="datamodel.js"></script>
 </html>
