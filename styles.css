@@ -155,21 +155,11 @@ button > p {
 	width: 250px;
 	line-height: 250px;
 	text-align: center;
-  border-radius: 50%;
+    border-radius: 50%;
 	font-size: x-large;
 }
 
-.start-study {
-    border-color: #B3FD78;
-}
-
-.start-meditate {
-    border-color: #C278FD;
-}
-
-.start-exercise {
-    border-color: #FD8078;
-}
+/* Radio Button, neutral, checked, and hover states styling */
 
 .categories input[type="radio"] {
     opacity: 0;
@@ -195,40 +185,36 @@ button > p {
 label > p {
 	margin-top: 35px;
 	padding-top: 10px;
-
 }
 
 #studyBtn + label {
     background-image: url('assets/study.svg');
-		background-repeat: no-repeat;
-		background-position: 50% 25%;
-		background-size: 30px;
-		padding-top: 0;
-
-	}
+	background-repeat: no-repeat;
+	background-position: 50% 25%;
+	background-size: 30px;
+	padding-top: 0;
+}
 
 #meditateBtn + label {
-	  background-image: url('assets/meditate.svg');
-		background-repeat: no-repeat;
-		background-position: 50% 25%;
-		background-size: 30px;
-		padding-top: 0;
-
-		}
+	background-image: url('assets/meditate.svg');
+	background-repeat: no-repeat;
+	background-position: 50% 25%;
+	background-size: 30px;
+	padding-top: 0;
+}
 
 #exerciseBtn + label {
-		background-image: url('assets/exercise.svg');
-		background-repeat: no-repeat;
-		background-position: 50% 25%;
-		background-size: 30px;
-		padding-top: 0;
-
-		}
+	background-image: url('assets/exercise.svg');
+	background-repeat: no-repeat;
+	background-position: 50% 25%;
+	background-size: 30px;
+	padding-top: 0;
+}
 
 #meditateBtn:checked + label,
 #meditateBtn:hover + label {
-		background-image: url('assets/meditate-active.svg');
-		background-repeat: no-repeat;
+	background-image: url('assets/meditate-active.svg');
+	background-repeat: no-repeat;
     color: #C278FD;
     border-color: #C278FD;
     box-shadow: 0 0 10px #C278FD;
@@ -236,9 +222,9 @@ label > p {
 
 #studyBtn:checked + label,
 #studyBtn:hover + label {
-		background-image: url('assets/study-active.svg');
-		background-repeat: no-repeat;
-		background-size: 30px;
+	background-image: url('assets/study-active.svg');
+	background-repeat: no-repeat;
+	background-size: 30px;
     color: #B3FD78;
     border-color: #B3FD78;
     box-shadow: 0 0 10px #B3FD78;
@@ -246,8 +232,8 @@ label > p {
 
 #exerciseBtn:checked + label,
 #exerciseBtn:hover + label {
-		background-image: url('assets/exercise-active.svg');
-		background-repeat: no-repeat;
+	background-image: url('assets/exercise-active.svg');
+	background-repeat: no-repeat;
     color: #FD8078;
     border-color: #FD8078;
     box-shadow: 0 0 10px #FD8078;
@@ -268,14 +254,16 @@ img {
 	justify-content: flex-end;
 }
 
+/* Data Model realted buttons */
+
 .start-activity {
     background-color: #CBC9CF;
-		color: #2B2733;
-		bottom: 50px;
-		padding: 7px 25px;
-		border-radius: 3px;
-		width: 200px;
-		font-size: large;
+	color: #2B2733;
+	bottom: 50px;
+	padding: 7px 25px;
+	border-radius: 3px;
+	width: 200px;
+	font-size: large;
 }
 
 .log-act-btn {
@@ -309,19 +297,20 @@ img {
 
 .input-style {
     background-color: transparent;
-		border:	0;
+	border:	0;
     border-bottom: 3px solid #CBC9CF;
     height: 20px;
-		width: 100%;
+	width: 100%;
     vertical-align: text-bottom;
     font-size: 18px;
     color: #CBC9CF;
 }
 
+/* Error message graphic */
+
 .error-border {
     border-color: #EFB7EC;
 }
-
 
 .error-wrapper > p {
     font-size: large;
@@ -334,9 +323,14 @@ img {
     color: #EFB7EC;
     margin-top: 17px;
 }
+
+/* Hide element */
+
 .hidden {
     display: none;
 }
+
+/* Card Display area and individual card styling */
 
 .deck {
  height: 100%;
@@ -348,7 +342,6 @@ img {
     display: flex;
     flex-direction: column-reverse;
     padding: 0px 25px;
-    /* border: 3px solid red; */
 }
 
 .card {
@@ -390,15 +383,17 @@ h4 {
     height: 50px;
     margin: 10px;
     border-radius: 2px;
-  }
+}
 
-  .create-new-wrapper {
-      display: flex;
-      justify-content: center;
-      background-color: #46424D;
-      height: 75vh;
-      margin: 35px;
-  }
+/* Create New Activity Page */
+
+.create-new-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #46424D;
+    height: 75vh;
+    margin: 35px;
+}
 
 .create-new-btn {
     margin-top: 150px;

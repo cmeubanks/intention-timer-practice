@@ -1,10 +1,11 @@
-
-var studyBtn = document.getElementById('studyBtn')
-var meditateBtn = document.getElementById('meditateBtn')
+var createNewBtn = document.getElementById('createNewBtn')
 var exerciseBtn = document.getElementById('exerciseBtn')
+var meditateBtn = document.getElementById('meditateBtn')
+var studyBtn = document.getElementById('studyBtn')
 var radioBtns = document.querySelectorAll('input[type="radio"]')
 var startBtn = document.querySelector('.start-activity')
 var startTimerBtn = document.getElementById('startTimerBtn')
+var logActBtn = document.getElementById('logActBtn')
 var userActivity = document.getElementById('userActivity')
 var userMinutes = document.getElementById('userMinutes')
 var userSeconds = document.getElementById('userSeconds')
@@ -13,34 +14,20 @@ var timerPage = document.getElementById('timerPage')
 var newActivityPage = document.getElementById('newActivityPage')
 var timerEvent = document.getElementById('timerEvent')
 var displayTimerFunction = document.getElementById('displayTimerFunction')
-var studyBtnImg = document.getElementById('studyBtnImg')
-var meditateBtnImg = document.getElementById('meditateBtnImg')
-var exerciseBtnImg = document.getElementById('exerciseBtnImg')
 var cardWrapper = document.querySelector('.card-wrapper')
-var logActBtn = document.getElementById('logActBtn')
 var noAct = document.querySelector('.no-activities')
 var deck = document.getElementById('deck')
 var completedPage = document.getElementById('completedPage')
 var timerWrapper = document.getElementById('timerWrapper')
-var createNewBtn = document.getElementById('createNewBtn')
 var deck = document.getElementById('deck')
 
-
-// global
+window.addEventListener('load', loadStorage)
+userMinutes.addEventListener('keypress', preventTimerErrors)
+userSeconds.addEventListener('keypress', preventTimerErrors)
 startBtn.addEventListener('click', submit)
 startTimerBtn.addEventListener('click', startTimer)
 logActBtn.addEventListener('click', populate)
 createNewBtn.addEventListener('click', backtoForm)
-userMinutes.addEventListener('keypress', preventTimerErrors)
-userSeconds.addEventListener('keypress', preventTimerErrors)
-window.addEventListener('load', loadStorage)
-
-//functions
-
-function switchForm() {
-  removeHidden(timerPage)
-  addHidden(newActivityPage)
-}
 
 function removeHidden(elementVar) {
   elementVar.classList.remove('hidden')
@@ -63,11 +50,16 @@ function loadStorage() {
   }
 }
 
+function switchForm() {
+  removeHidden(timerPage)
+  addHidden(newActivityPage)
+}
+
 function backtoForm() {
-  startTimerBtn.disabled = false
-  startTimerBtn.innerText = "START"
   addHidden(completedPage)
   removeHidden(newActivityPage)
+  startTimerBtn.disabled = false
+  startTimerBtn.innerText = "START"
   userActivity.value = '';
   userMinutes.value = '';
   userSeconds.value = '';
@@ -80,10 +72,10 @@ function backtoForm() {
 
 
 function inputUserValues() {
-  if(userSeconds.value < 10 && userSeconds.value.charAt(0) !== '0') {
+  if (userSeconds.value < 10 && userSeconds.value.charAt(0) !== '0') {
     userSeconds.value = `0` + `${userSeconds.value}`
   }
-  if(userMinutes.value < 10 && userMinutes.value.charAt(0) !== '0') {
+  if (userMinutes.value < 10 && userMinutes.value.charAt(0) !== '0') {
     userMinutes.value = `0` + `${userMinutes.value}`
   }
   displayTimerFunction.innerText = `${userMinutes.value} : ${userSeconds.value}`
@@ -91,34 +83,18 @@ function inputUserValues() {
 }
 
 function preventTimerErrors(event) {
- if(event.which < 1 || event.which > 60) {
-   event.preventDefault();
-}
-}
-
-function submit() {
-    event.preventDefault()
-    if (!userActivity.value || !userMinutes.value || !userSeconds.value || !isBtnChecked()) {
-        removeHidden(errorWrapper)
-    } else if ((userMinutes.value || userSeconds.value) == 'e') {
-        removeHidden(errorWrapper)
-    } else {
-        var activityCard = new Activity (whichBtn(), userActivity.value, userMinutes.value, userSeconds.value)
-        cards.push(activityCard)
-        activityCard.saveToStorage()
-        inputUserValues()
-        switchForm()
-        setStartBtnColor()
-    }
+  if (event.which < 1 || event.which > 60) {
+    event.preventDefault();
+  }
 }
 
 function isBtnChecked() {
-    for (var i = 0; i < radioBtns.length; i++) {
-        if (radioBtns[i].checked) {
-            return true
-        }
+  for (var i = 0; i < radioBtns.length; i++) {
+    if (radioBtns[i].checked) {
+      return true
     }
-    return false
+  }
+  return false
 }
 
 function whichBtn() {
@@ -128,6 +104,32 @@ function whichBtn() {
       theRightBtn = radioBtns[i].value
       return theRightBtn
     }
+  }
+}
+
+function submit() {
+  event.preventDefault()
+  if (!userActivity.value || !userMinutes.value || !userSeconds.value | !isBtnChecked()) {
+    removeHidden(errorWrapper)
+  } else if ((userMinutes.value || userSeconds.value) == 'e') {
+    removeHidden(errorWrapper)
+  } else {
+    var activityCard = new Activity (whichBtn(), userActivity.value,userMinutes.value, userSeconds.value)
+    cards.push(activityCard)
+    activityCard.saveToStorage()
+    inputUserValues()
+    switchForm()
+    setStartBtnColor()
+  }
+}
+
+function markerColor(category) {
+  if (category === 'study') {
+    return '#B3FD78'
+  } else if (category === 'meditate') {
+    return '#C278FD'
+  } else if (category === 'exercise') {
+    return '#FD8078'
   }
 }
 
@@ -141,23 +143,6 @@ function setStartBtnColor() {
     startTimerBtn.style.borderColor = "#FD8078";
   }
  }
-}
-
-function markerColor(category) {
-  if (category === 'study') {
-    return '#B3FD78'
-  } else if (category === 'meditate') {
-    return '#C278FD'
-  } else if (category === 'exercise') {
-    return '#FD8078'
-  }
-}
-
-function populate() {
-  addHidden(noAct)
-  addHidden(timerPage)
-  removeHidden(completedPage)
-  reloadCards()
 }
 
 function reloadCards() {
@@ -179,6 +164,13 @@ function reloadCards() {
     </article>
     `
   }
+}
+
+function populate() {
+  addHidden(noAct)
+  addHidden(timerPage)
+  removeHidden(completedPage)
+  reloadCards()
 }
 
 function startTimer() {
